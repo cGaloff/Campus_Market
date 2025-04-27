@@ -31,4 +31,8 @@ public class Publicacion {
     @JoinColumn(name = "idReporte")
     private Reporte reporte;
 
+    @OneToOne
+    @JoinColumn(name = "idNotificacion")
+    private Notificacion notificacion;
+
 }

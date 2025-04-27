@@ -32,4 +32,12 @@ public class Usuario {
     @OneToOne(mappedBy = "usuario")
     private Emprendimiento emprendimiento;
 
+    @ManyToMany
+    @JoinTable(
+            name = "usuario_notificacion",
+            joinColumns = @JoinColumn(name = "idUsuario"),
+            inverseJoinColumns = @JoinColumn(name = "idNotificacion")
+    )
+    private List<Notificacion> notificaciones;
+
 }
