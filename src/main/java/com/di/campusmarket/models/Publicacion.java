@@ -27,4 +27,8 @@ public class Publicacion {
     @OneToOne(mappedBy = "publicacion")
     private Producto producto;
 
+    @ManyToOne
+    @JoinColumn(name = "idReporte")
+    private Reporte reporte;
+
 }

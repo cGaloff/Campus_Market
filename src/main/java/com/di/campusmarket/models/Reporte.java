@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Table(name = "Reporte")
@@ -16,7 +17,11 @@ public class Reporte {
     private String motivo;
     @Column(name = "fechaReporte")
     private Date fecha;
+
     @ManyToOne
     @JoinColumn(name = "idUsuario")
     private Usuario usuario;
+
+    @OneToMany(mappedBy = "reporte")
+    private List<Publicacion> publicacion;
 }
