@@ -11,7 +11,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Emprendimiento {
+public class EmprendimientoDTO {
     private Long idEmprendimiento;
     private String nombre;
     private String descripcion;
