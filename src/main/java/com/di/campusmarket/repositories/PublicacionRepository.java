@@ -1,6 +1,7 @@
 package com.di.campusmarket.repositories;
 
 import com.di.campusmarket.models.Publicacion;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

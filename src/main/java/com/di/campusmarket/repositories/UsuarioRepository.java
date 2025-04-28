@@ -5,10 +5,13 @@ import com.di.campusmarket.models.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
-    Usuario findByIdUsuario(Long idUsuario);
-    Usuario findByNombre(String nombre);
-    Usuario findByEmail(String email);
-    Usuario findByEmprendimiento(Emprendimiento emprendimiento);
+    Optional<Usuario> findByIdUsuario(Long idUsuario);
+    Optional<Usuario> findByNombre(String nombre);
+
+    Optional<Usuario> findByCorreo(String correo);
+    Optional<Usuario> findByEmprendimiento(Emprendimiento emprendimiento);
 }
