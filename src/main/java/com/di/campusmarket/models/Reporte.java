@@ -22,6 +22,8 @@ public class Reporte {
     @JoinColumn(name = "idUsuario")
     private Usuario usuario;
 
-    @OneToMany(mappedBy = "reporte")
-    private List<Publicacion> publicacion;
+
+    @ManyToOne
+    @JoinColumn(name = "idPublicacion")
+    private Publicacion publicacion;
 }

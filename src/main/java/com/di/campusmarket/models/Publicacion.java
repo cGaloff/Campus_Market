@@ -27,12 +27,16 @@ public class Publicacion {
     @OneToOne(mappedBy = "publicacion")
     private Producto producto;
 
-    @ManyToOne
-    @JoinColumn(name = "idReporte")
-    private Reporte reporte;
-
     @OneToOne
     @JoinColumn(name = "idNotificacion")
     private Notificacion notificacion;
+
+    @ManyToOne
+    @JoinColumn(name = "id_categoria")
+    private Categoria categoria;
+
+    @OneToMany(mappedBy = "publicacion")
+    private List<Reporte> reportes;
+
 
 }

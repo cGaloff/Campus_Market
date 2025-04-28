@@ -3,6 +3,8 @@ package com.di.campusmarket.models;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "Categoria")
@@ -16,4 +18,7 @@ public class Categoria {
     @OneToOne
     @JoinColumn(name = "idProducto")
     private Producto producto;
+
+    @OneToMany(mappedBy = "categoria")
+    private List<Publicacion> publicaciones;
 }

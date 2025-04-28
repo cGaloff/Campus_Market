@@ -8,6 +8,7 @@ import java.util.List;
 
 @Repository
 public interface ReporteRepository extends JpaRepository<Reporte, Long> {
-    List<Reporte> findByUsuario(Long usuario);
-    List<Reporte> findByPublicacion(Long publicacion);
+    List<Reporte> findByUsuarioIdUsuario(Long idUsuario);
+    List<Reporte> findByPublicacionIdPublicacion(Long idPublicacion);
+
 }

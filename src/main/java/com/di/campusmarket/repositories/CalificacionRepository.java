@@ -6,8 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface CalificacionRepository extends JpaRepository<Calificacion, Long> {
-    Calificacion findByUsuarioIdAndPublicacionId(Long usuarioId, Long publicacionId);
-    Calificacion findByPublicacionId(Long publicacionId);
-    List<Calificacion> findByUsuarioId(Long usuarioId);
+    Calificacion findByPublicacionIdPublicacion(Long idPublicacion);
     List<Calificacion> findByValor(int valor);
 }
