@@ -25,11 +25,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
-    public void deleteUsuario(UsuarioDTO usuarioDTO) {
-        if (usuarioDTO.getIdUsuario() == null) {
+    public void deleteUsuario(UsuarioDTO usuario) {
+        if (usuario.getIdUsuario() == null) {
             throw new RuntimeException("El id del usuario no puede ser nulo para eliminar");
         }
-        usuarioRepository.deleteById(usuarioDTO.getIdUsuario());
+        usuarioRepository.deleteById(usuario.getIdUsuario());
     }
 
     @Override
