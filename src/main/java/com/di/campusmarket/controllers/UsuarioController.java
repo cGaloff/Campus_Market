@@ -3,6 +3,7 @@ package com.di.campusmarket.controllers;
 import com.di.campusmarket.dtos.UsuarioDTO;
 import com.di.campusmarket.services.UsuarioService;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,7 @@ import java.util.List;
 @RequestMapping("/api/usuarios")
 @AllArgsConstructor
 public class UsuarioController {
+    @Autowired
     private final UsuarioService usuarioService;
 
     @PostMapping
@@ -20,9 +22,9 @@ public class UsuarioController {
         return ResponseEntity.ok(nuevoUsuario);
     }
 
-    @DeleteMapping
-    public ResponseEntity<Void> eliminarUsuario(@RequestBody UsuarioDTO usuarioDTO) {
-        usuarioService.deleteUsuario(usuarioDTO);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarUsuario(@PathVariable Long id) {
+        usuarioService.deleteUsuarioById(id);
         return ResponseEntity.noContent().build();
     }
 
