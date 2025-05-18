@@ -6,8 +6,8 @@ import com.di.campusmarket.models.Reporte;
 import java.util.List;
 
 public interface ReporteService {
-    ReporteDTO createReporte(Reporte reporte);
-    void deleteReporte(Reporte reporte);
+    ReporteDTO createReporte(ReporteDTO reporte);
+    void deleteReporte(ReporteDTO reporte);
     List<ReporteDTO> getAllByUsuarioId(Long idUsuario);
     List<ReporteDTO> getAllByPublicacionId(Long idPublicacion);
 

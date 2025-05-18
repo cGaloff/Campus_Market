@@ -7,8 +7,10 @@ import com.di.campusmarket.repositories.CalificacionRepository;
 import com.di.campusmarket.services.CalificacionService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.yaml.snakeyaml.events.Event;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -17,17 +19,19 @@ public class CalificacionServiceImpl implements CalificacionService {
     private final CalificacionMapper calificacionMapper;
 
     @Override
-    public CalificacionDTO createCalificacion(Calificacion calificacion) {
-        return null;
+    public CalificacionDTO createCalificacion(CalificacionDTO calificacion) {
+        Calificacion calificacionEntity = calificacionMapper.toEntity(calificacion);
+        return calificacionMapper.toDTO(calificacionRepository.save(calificacionEntity));
     }
 
     @Override
     public List<CalificacionDTO> getAllCalificaciones() {
-        return List.of();
+        return calificacionRepository.findAll().stream().map(calificacionMapper::toDTO).toList();
     }
 
     @Override
-    public CalificacionDTO getCalificacionByPublicacionId(Long id) {
-        return null;
+    public Optional<CalificacionDTO> getCalificacionByPublicacionId(Long id) {
+
+        return calificacionRepository.findByPublicacionIdPublicacion(id).map(calificacionMapper::toDTO);
     }
 }

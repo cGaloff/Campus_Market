@@ -5,9 +5,10 @@ import com.di.campusmarket.dtos.CalificacionDTO;
 import com.di.campusmarket.models.Calificacion;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CalificacionService {
-    CalificacionDTO createCalificacion(Calificacion calificacion);
+    CalificacionDTO createCalificacion(CalificacionDTO calificacion);
     List<CalificacionDTO> getAllCalificaciones();
-    CalificacionDTO getCalificacionByPublicacionId(Long id);
+    Optional<CalificacionDTO> getCalificacionByPublicacionId(Long id);
 }

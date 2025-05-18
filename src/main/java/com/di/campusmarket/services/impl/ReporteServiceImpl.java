@@ -16,23 +16,27 @@ public class ReporteServiceImpl implements ReporteService {
     private final ReporteRepository reporteRepository;
     private final ReporteMapper reporteMapper;
 
+
     @Override
-    public ReporteDTO createReporte(Reporte reporte) {
-        return null;
+    public ReporteDTO createReporte(ReporteDTO reporte) {
+        Reporte reporteEntity = reporteMapper.toEntity(reporte);
+        return reporteMapper.toDTO(reporteRepository.save(reporteEntity));
     }
 
     @Override
-    public void deleteReporte(Reporte reporte) {
-
+    public void deleteReporte(ReporteDTO reporte) {
+        reporteRepository.deleteById(reporte.getIdReporte());
     }
 
     @Override
     public List<ReporteDTO> getAllByUsuarioId(Long idUsuario) {
-        return List.of();
+        List<Reporte> reportes = reporteRepository.findByUsuarioIdUsuario(idUsuario);
+        return reporteMapper.toDTO(reportes);
     }
 
     @Override
     public List<ReporteDTO> getAllByPublicacionId(Long idPublicacion) {
-        return List.of();
+        List<Reporte> reportes = reporteRepository.findByPublicacionIdPublicacion(idPublicacion);
+        return reporteMapper.toDTO(reportes);
     }
 }

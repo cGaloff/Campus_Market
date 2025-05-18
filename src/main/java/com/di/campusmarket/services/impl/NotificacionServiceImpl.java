@@ -15,17 +15,18 @@ public class NotificacionServiceImpl implements NotificacionService {
     private final NotificacionMapper notificacionMapper;
 
     @Override
-    public NotificacionDTO createNotificacion(Notificacion notificacion) {
-        return null;
+    public NotificacionDTO createNotificacion(NotificacionDTO notificacionDTO) {
+        Notificacion notificacionEntity = notificacionMapper.toEntity(notificacionDTO);
+        return notificacionMapper.toDTO(notificacionRepository.save(notificacionEntity));
     }
 
     @Override
-    public void deleteNotificacion(Notificacion notificacion) {
-
+    public void deleteNotificacion(NotificacionDTO notificacionDTO) {
+        notificacionRepository.delete(notificacionMapper.toEntity(notificacionDTO));
     }
 
     @Override
     public NotificacionDTO getNotifacionByIdPublicacion(Long idPublicacion) {
-        return null;
+        return notificacionRepository.findByPublicacionIdPublicacion(idPublicacion).map(notificacionMapper::toDTO).orElse(null);
     }
 }

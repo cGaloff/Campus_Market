@@ -2,6 +2,7 @@ package com.di.campusmarket.services.impl;
 
 import com.di.campusmarket.dtos.CategoriaDTO;
 import com.di.campusmarket.mappers.CategoriaMapper;
+import com.di.campusmarket.models.Categoria;
 import com.di.campusmarket.repositories.CategoriaRepository;
 import com.di.campusmarket.services.CategoriaService;
 import lombok.AllArgsConstructor;
@@ -18,7 +19,8 @@ public class CategoriaServiceImpl implements CategoriaService {
 
     @Override
     public CategoriaDTO createCategoria(CategoriaDTO categoria) {
-        return null;
+        Categoria categoriaEntity = categoriaMapper.toEntity(categoria);
+        return categoriaMapper.toDTO(categoriaRepository.save(categoriaEntity));
     }
 
     @Override

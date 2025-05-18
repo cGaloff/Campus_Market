@@ -16,13 +16,13 @@ public class NotificacionController {
     private final NotificacionService notificacionService;
 
     @PostMapping
-    public ResponseEntity<NotificacionDTO> crearNotificacion(@RequestBody Notificacion notificacion) {
+    public ResponseEntity<NotificacionDTO> crearNotificacion(@RequestBody NotificacionDTO notificacion) {
         NotificacionDTO nuevaNotificacion = notificacionService.createNotificacion(notificacion);
         return ResponseEntity.ok(nuevaNotificacion);
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> eliminarNotificacion(@RequestBody Notificacion notificacion) {
+    public ResponseEntity<Void> eliminarNotificacion(@RequestBody NotificacionDTO notificacion) {
         notificacionService.deleteNotificacion(notificacion);
         return ResponseEntity.noContent().build();
     }

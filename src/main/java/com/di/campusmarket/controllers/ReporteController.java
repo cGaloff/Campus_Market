@@ -19,14 +19,14 @@ public class ReporteController {
 
 
     @PostMapping
-    public ResponseEntity<ReporteDTO> crearReporte(@RequestBody Reporte reporte) {
+    public ResponseEntity<ReporteDTO> crearReporte(@RequestBody ReporteDTO reporte) {
         ReporteDTO nuevoReporte = reporteService.createReporte(reporte);
         return ResponseEntity.ok(nuevoReporte);
     }
 
 
     @DeleteMapping
-    public ResponseEntity<Void> eliminarReporte(@RequestBody Reporte reporte) {
+    public ResponseEntity<Void> eliminarReporte(@RequestBody ReporteDTO reporte) {
         reporteService.deleteReporte(reporte);
         return ResponseEntity.noContent().build();
     }
