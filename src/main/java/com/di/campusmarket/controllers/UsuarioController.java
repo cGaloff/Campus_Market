@@ -48,8 +48,9 @@ public class UsuarioController {
         user.setContraseña(passwordEncoder.encode(user.getContraseña()));
         Usuario user1 = usuarioMapper.toEntity(user);
         UsuarioRepository.save(user1);
-
-        return ResponseEntity.ok("User registered successfully!");
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "User registered successfully!");
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping("/login")

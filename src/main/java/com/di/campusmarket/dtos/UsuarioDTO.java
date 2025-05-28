@@ -17,4 +17,7 @@ public class UsuarioDTO {
     private String contraseña;
     @Nullable
     private String rol;
+
+    public UsuarioDTO(Long idUsuario, String nombre, String apellido, String correo, Object o, String nombre1) {
+    }
 }
