@@ -1,6 +1,7 @@
 package com.di.campusmarket.dtos;
 
 import lombok.*;
+import org.springframework.lang.Nullable;
 
 import java.util.Date;
 
@@ -14,5 +15,6 @@ public class UsuarioDTO {
     private String apellido;
     private String correo;
     private String contraseña;
+    @Nullable
     private String rol;
 }
