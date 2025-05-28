@@ -39,7 +39,7 @@ public class SecurityConfig {
                                            JwtAuthFilter jwtAuthFilter) throws Exception {
         return http
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/api/v1/auth/**", "/api/usuarios").permitAll() // ← Permitido sin token
+                        .requestMatchers("/api/usuarios/auth/", "/api/usuarios/auth/register", "/api/usuarios/auth/login").permitAll() // ← Permitido sin token
                         .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults())
