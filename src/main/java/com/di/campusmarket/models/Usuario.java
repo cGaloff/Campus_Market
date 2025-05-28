@@ -2,7 +2,9 @@ package com.di.campusmarket.models;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
@@ -10,6 +12,8 @@ import java.util.List;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "Usuario")
 public class Usuario {
     @Id
@@ -40,4 +44,7 @@ public class Usuario {
     )
     private List<Notificacion> notificaciones;
 
+    public Usuario(Object o, String nombre, String apellido, String correo, String encode, String rol) {
+
+    }
 }

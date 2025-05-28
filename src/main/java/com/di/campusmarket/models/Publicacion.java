@@ -16,6 +16,8 @@ public class Publicacion {
     private String titulo;
     private String descripcion;
     private Date fechaPublicacion;
+    @Lob
+    private byte[] imagen;
 
     @ManyToOne
     @JoinColumn(name = "idEmprendimiento")

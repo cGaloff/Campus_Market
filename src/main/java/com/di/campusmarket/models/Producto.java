@@ -12,6 +12,8 @@ public class Producto {
     private Long idProducto;
     private String nombre;
     private double precio;
+    @Lob
+    private byte[] imagen;
 
     @OneToOne
     @JoinColumn(name = "idPublicacion")
