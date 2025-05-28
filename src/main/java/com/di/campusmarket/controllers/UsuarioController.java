@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/usuarios")
+@RequestMapping("/api/usuarios/auth")
 @AllArgsConstructor
 public class UsuarioController {
     @Autowired

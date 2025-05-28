@@ -39,7 +39,7 @@ public class SecurityConfig {
                                            JwtAuthFilter jwtAuthFilter) throws Exception {
         return http
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/api/v1/auth/**").permitAll()
+                        .requestMatchers("/api/v1/auth/**", "/api/usuarios").permitAll() // ← Permitido sin token
                         .anyRequest().authenticated()
                 )
                 .httpBasic(withDefaults())
@@ -50,6 +50,7 @@ public class SecurityConfig {
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
+
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -75,3 +76,4 @@ public class SecurityConfig {
         return config.getAuthenticationManager();
     }
 }
+
