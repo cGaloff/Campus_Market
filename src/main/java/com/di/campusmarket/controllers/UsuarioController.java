@@ -44,7 +44,7 @@ public class UsuarioController {
         if (UsuarioRepository.existsByCorreo(user.getCorreo())) {
             return ResponseEntity.badRequest().body("Error: Email is already in use!");
         }
-
+        user.setRol("CLIENTE");
         user.setContraseña(passwordEncoder.encode(user.getContraseña()));
         Usuario user1 = usuarioMapper.toEntity(user);
         UsuarioRepository.save(user1);

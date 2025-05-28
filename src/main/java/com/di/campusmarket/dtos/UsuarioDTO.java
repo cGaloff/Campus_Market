@@ -10,7 +10,6 @@ import java.util.Date;
 @Builder
 
 public class UsuarioDTO {
-    private Long idUsuario;
     private String nombre;
     private String apellido;
     private String correo;
