@@ -1,12 +1,14 @@
 package com.di.campusmarket.filter.security;
 
 import com.di.campusmarket.services.security.JwtService;
+import com.di.campusmarket.services.security.UserInfoDetail;
 import com.di.campusmarket.services.security.UserInfoService;
 import io.micrometer.common.lang.NonNull;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,7 +19,8 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 
-@Component
+
+
 @RequiredArgsConstructor
 public class JwtAuthFilter extends OncePerRequestFilter {
 
@@ -58,5 +61,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
             }
         }
 
-        filterChain.doFilter(request, response);}
+        filterChain.doFilter(request, response);
+    }
 }

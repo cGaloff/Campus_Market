@@ -40,11 +40,8 @@ public class UsuarioController {
     }
     @PostMapping("/register")
     public ResponseEntity<?> registerUser(@RequestBody UsuarioDTO user) {
-        if (UsuarioRepository.existsByUsername(user.getNombre())) {
-            return ResponseEntity.badRequest().body("Error: Username is already taken!");
-        }
 
-        if (UsuarioRepository.existsByEmail(user.getCorreo())) {
+        if (UsuarioRepository.existsByCorreo(user.getCorreo())) {
             return ResponseEntity.badRequest().body("Error: Email is already in use!");
         }
 
