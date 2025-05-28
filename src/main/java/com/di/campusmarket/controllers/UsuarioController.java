@@ -42,7 +42,9 @@ public class UsuarioController {
     public ResponseEntity<?> registerUser(@RequestBody UsuarioDTO user) {
 
         if (UsuarioRepository.existsByCorreo(user.getCorreo())) {
-            return ResponseEntity.badRequest().body("Error: Email is already in use!");
+            Map<String, String> response = new HashMap<>();
+            response.put("error", "Email is already in use!");
+            return ResponseEntity.badRequest().body(response);
         }
         user.setRol("CLIENTE");
         user.setContraseña(passwordEncoder.encode(user.getContraseña()));
@@ -64,7 +66,7 @@ public class UsuarioController {
         String jwt = JwtService.generateToken(userDetails.getUsername());
 
         Map<String, String> response = new HashMap<>();
-        response.put("token", jwt);
+        response.put("message", "Logged successfully!");
         return ResponseEntity.ok(response);
     }
 
